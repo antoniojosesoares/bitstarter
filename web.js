@@ -5,6 +5,14 @@ var app = express.createServer(express.logger());
 
 var content = 'Treta';
 
+fs.readFile('./Index.html', function read(err, data) {
+    if (err) {
+        throw err;
+    }
+    content = data;
+
+});
+
 app.get('/', function(request, response) {
   response.send(content);
 });
