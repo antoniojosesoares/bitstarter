@@ -5,7 +5,7 @@ var app = express.createServer(express.logger());
 
 var content = 'Treta';
 
-fs.readFile('./Index.html', function read(err, data) {
+fs.readFile('./index.html', function read(err, data) {
     if (err) {
         throw err;
     }
