@@ -5,6 +5,8 @@ var app = express.createServer(express.logger());
 
 var content = 'Treta';
 
+var buf = new Buffer(16);
+
 fs.readFile('./index.html', function read(err, data) {
     if (err) {
         throw err;
@@ -13,9 +15,12 @@ fs.readFile('./index.html', function read(err, data) {
 
 });
 
+
 app.get('/', function(request, response) {
-  response.send(content);
+  buf.write('AJ', 'utf-8');
+  response.send(buf.toString('utf-8');
 });
+
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
